@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json.schemastore.org/package",
+  "name": "@norniras/hive-client",
+  "version": "0.1.0",
+  "type": "module",
+  "author": "Jevgeni Glazunov",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NornirAS/hive-client.git"
+  },
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint --ext .ts --ignore-path .gitignore --fix src",
+    "format": "prettier . --write",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@norniras/eslint-config-base-ts": "^1.0.1",
+    "@norniras/prettier-config": "^1.0.1",
+    "@norniras/ts-config": "^1.0.0",
+    "@types/node": "^18.11.7",
+    "husky": "^8.0.2",
+    "lint-staged": "^13.1.0",
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "cross-fetch": "^3.1.5"
+  },
+  "prettier": "@norniras/prettier-config",
+  "lint-staged": {
+    "*.ts": "eslint --cache --fix",
+    "*": [
+      "prettier --write --ignore-unknown"
+    ]
+  }
+}
