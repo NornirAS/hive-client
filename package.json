@@ -4,10 +4,6 @@
   "version": "0.1.0",
   "type": "module",
   "author": "Jevgeni Glazunov",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/NornirAS/hive-client.git"
-  },
   "exports": {
     ".": "./dist/index.js"
   },
@@ -17,6 +13,16 @@
         "./dist/index.d.ts"
       ]
     }
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md",
+    "package.json"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NornirAS/hive-client.git"
   },
   "scripts": {
     "build": "tsc",
