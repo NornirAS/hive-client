@@ -16,13 +16,13 @@ const hivePost = async ({ hiveURL, path, body }: RequestParams) => {
       body,
     })
 
-    const data = await res.json()
-
-    if (res.status !== 200 || data.error) return [data]
-
-    return [null, data]
+    return await res.json()
   } catch (error) {
-    return [error]
+    return {
+      data: null,
+      error: true,
+      message: error,
+    }
   }
 }
 
