@@ -43,19 +43,19 @@ const createHiveService = (hiveURL: string) => {
       return res
     },
 
-    async serviceAddLink(params: any) {
+    async serviceLinks(params: any) {
       const res = await hivePost({
         hiveURL: props.hiveURL,
-        path: `${props.basePath}/add-links`,
+        path: `${props.basePath}/links`,
         body: JSON.stringify(params),
       })
       return res
     },
 
-    async serviceRemoveLink(params: any) {
+    async serviceLinksUpdate(params: any) {
       const res = await hivePost({
         hiveURL: props.hiveURL,
-        path: `${props.basePath}/remove-links`,
+        path: `${props.basePath}/links/update`,
         body: JSON.stringify(params),
       })
       return res
