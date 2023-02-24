@@ -60,6 +60,15 @@ const createHiveService = (hiveURL: string) => {
       })
       return res
     },
+
+    async serviceGhostsAdd(params: any) {
+      const res = await hivePost({
+        hiveURL: props.hiveURL,
+        path: `${props.basePath}/ghosts/add`,
+        body: JSON.stringify(params),
+      })
+      return res
+    },
   }
 }
 

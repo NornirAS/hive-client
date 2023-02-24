@@ -16,15 +16,6 @@ const createHiveGhost = (hiveURL: string) => {
       return res
     },
 
-    async ghostAdd(params: any) {
-      const res = await hivePost({
-        hiveURL: props.hiveURL,
-        path: `${props.basePath}/add`,
-        body: JSON.stringify(params),
-      })
-      return res
-    },
-
     async ghostRemove(params: any) {
       const res = await hivePost({
         hiveURL: props.hiveURL,
