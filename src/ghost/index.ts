@@ -16,37 +16,37 @@ const createHiveGhost = (hiveURL: string) => {
       return res
     },
 
-    async ghostRemove(params: any) {
+    async ghostDelete(params: any) {
       const res = await hivePost({
         hiveURL: props.hiveURL,
-        path: `${props.basePath}/remove`,
+        path: `${props.basePath}/delete`,
         body: JSON.stringify(params),
       })
       return res
     },
 
-    async ghostGetUntied(params: any) {
+    async ghostGetPending(params: any) {
       const res = await hivePost({
         hiveURL: props.hiveURL,
-        path: `${props.basePath}/untied`,
+        path: `${props.basePath}/pending`,
         body: JSON.stringify(params),
       })
       return res
     },
 
-    async ghostAccept(params: any) {
+    async ghostAcceptPending(params: any) {
       const res = await hivePost({
         hiveURL: props.hiveURL,
-        path: `${props.basePath}/accept`,
+        path: `${props.basePath}/pending/accept`,
         body: JSON.stringify(params),
       })
       return res
     },
 
-    async ghostReject(params: any) {
+    async ghostRejectPending(params: any) {
       const res = await hivePost({
         hiveURL: props.hiveURL,
-        path: `${props.basePath}/reject`,
+        path: `${props.basePath}/pending/reject`,
         body: JSON.stringify(params),
       })
       return res
@@ -55,7 +55,7 @@ const createHiveGhost = (hiveURL: string) => {
     async ghostAddMapID(params: any) {
       const res = await hivePost({
         hiveURL: props.hiveURL,
-        path: `${props.basePath}/add-map-id`,
+        path: `${props.basePath}/map-id/add`,
         body: JSON.stringify(params),
       })
       return res
@@ -64,7 +64,7 @@ const createHiveGhost = (hiveURL: string) => {
     async ghostGenerateMapID(params: any) {
       const res = await hivePost({
         hiveURL: props.hiveURL,
-        path: `${props.basePath}/generate-map-id`,
+        path: `${props.basePath}/map-id/generate`,
         body: JSON.stringify(params),
       })
       return res
@@ -91,7 +91,7 @@ const createHiveGhost = (hiveURL: string) => {
     async ghostAllowLink(params: any) {
       const res = await hivePost({
         hiveURL: props.hiveURL,
-        path: `${props.basePath}/allow-link`,
+        path: `${props.basePath}/link/allow`,
         body: JSON.stringify(params),
       })
       return res
@@ -100,7 +100,7 @@ const createHiveGhost = (hiveURL: string) => {
     async ghostDenyLink(params: any) {
       const res = await hivePost({
         hiveURL: props.hiveURL,
-        path: `${props.basePath}/deny-link`,
+        path: `${props.basePath}/link/deny`,
         body: JSON.stringify(params),
       })
       return res
@@ -115,37 +115,37 @@ const createHiveGhost = (hiveURL: string) => {
       return res
     },
 
-    async ghostMorph(params: any) {
+    async ghostMorphedAdd(params: any) {
       const res = await hivePost({
         hiveURL: props.hiveURL,
-        path: `${props.basePath}/add-primary`,
+        path: `${props.basePath}/morphed/add`,
         body: JSON.stringify(params),
       })
       return res
     },
 
-    async ghostUnmorph(params: any) {
+    async ghostMorphedRemove(params: any) {
       const res = await hivePost({
         hiveURL: props.hiveURL,
-        path: `${props.basePath}/remove-primary`,
+        path: `${props.basePath}/morphed/remove`,
         body: JSON.stringify(params),
       })
       return res
     },
 
-    async ghostGiveReadAccess(params: any) {
+    async ghostReadAccessAdd(params: any) {
       const res = await hivePost({
         hiveURL: props.hiveURL,
-        path: `${props.basePath}/give-read-access`,
+        path: `${props.basePath}/read-access/add`,
         body: JSON.stringify(params),
       })
       return res
     },
 
-    async ghostRemoveReadAccess(params: any) {
+    async ghostReadAccessRemove(params: any) {
       const res = await hivePost({
         hiveURL: props.hiveURL,
-        path: `${props.basePath}/remove-read-access`,
+        path: `${props.basePath}/read-access/remove`,
         body: JSON.stringify(params),
       })
       return res
