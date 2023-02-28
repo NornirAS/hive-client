@@ -1,4 +1,5 @@
 import hivePost from '../utils/hivePost.js'
+import type { AuthGetToken } from './types.js'
 
 const createHiveAuth = (hiveURL: string) => {
   const props = {
@@ -7,7 +8,7 @@ const createHiveAuth = (hiveURL: string) => {
   }
 
   return {
-    authGetToken(params: { username: string; password: string }) {
+    authGetToken(params: AuthGetToken) {
       return hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/get-token`,
@@ -18,3 +19,5 @@ const createHiveAuth = (hiveURL: string) => {
 }
 
 export default createHiveAuth
+
+export { AuthGetToken }
