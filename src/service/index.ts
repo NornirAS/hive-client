@@ -7,7 +7,7 @@ const createHiveService = (hiveURL: string) => {
   }
 
   return {
-    async serviceGetAll(params: any) {
+    async serviceGetAll(params: { domains: string; rootDomain: string; token: string }) {
       const res = await hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}`,
@@ -16,7 +16,18 @@ const createHiveService = (hiveURL: string) => {
       return res
     },
 
-    async serviceCreate(params: any) {
+    async serviceCreate(params: {
+      rootDomain: string
+      token: string
+      username: string
+      service: string
+      authToken: string
+      dataSchema: string
+      timeout: string | number
+      commandSchema?: string
+      preScript?: string
+      postScript?: string
+    }) {
       const res = await hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/create`,
@@ -25,7 +36,17 @@ const createHiveService = (hiveURL: string) => {
       return res
     },
 
-    async serviceUpdate(params: any) {
+    async serviceUpdate(params: {
+      rootDomain: string
+      token: string
+      service: string
+      authToken: string
+      dataSchema: string
+      timeout: string | number
+      commandSchema?: string
+      preScript?: string
+      postScript?: string
+    }) {
       const res = await hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/update`,
@@ -34,7 +55,7 @@ const createHiveService = (hiveURL: string) => {
       return res
     },
 
-    async serviceRemove(params: any) {
+    async serviceRemove(params: { domains: string; rootDomain: string; token: string; service: string }) {
       const res = await hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/remove`,
@@ -43,7 +64,7 @@ const createHiveService = (hiveURL: string) => {
       return res
     },
 
-    async serviceLinks(params: any) {
+    async serviceLinks(params: { domains: string; rootDomain: string; token: string; service: string }) {
       const res = await hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/links`,
@@ -52,7 +73,13 @@ const createHiveService = (hiveURL: string) => {
       return res
     },
 
-    async serviceLinksUpdate(params: any) {
+    async serviceLinksUpdate(params: {
+      domains: string
+      rootDomain: string
+      token: string
+      service: string
+      links: string[]
+    }) {
       const res = await hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/links/update`,
@@ -61,7 +88,13 @@ const createHiveService = (hiveURL: string) => {
       return res
     },
 
-    async serviceGhostsAdd(params: any) {
+    async serviceGhostsAdd(params: {
+      domains: string
+      rootDomain: string
+      token: string
+      service: string
+      quantity: string | number
+    }) {
       const res = await hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/ghosts/add`,

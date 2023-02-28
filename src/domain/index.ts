@@ -7,7 +7,7 @@ const createHiveDomain = (hiveURL: string) => {
   }
 
   return {
-    async domainGetAll(params: any) {
+    async domainGetAll(params: { rootDomain: string; token: string; username: string }) {
       const res = await hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}`,
@@ -16,7 +16,7 @@ const createHiveDomain = (hiveURL: string) => {
       return res
     },
 
-    async domainCreate(params: any) {
+    async domainCreate(params: { domain: string; rootDomain: string; token: string; username: string }) {
       const res = await hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/create`,
@@ -25,7 +25,7 @@ const createHiveDomain = (hiveURL: string) => {
       return res
     },
 
-    async domainDelete(params: any) {
+    async domainDelete(params: { domain: string; rootDomain: string; token: string; username: string }) {
       const res = await hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/delete`,
@@ -34,7 +34,13 @@ const createHiveDomain = (hiveURL: string) => {
       return res
     },
 
-    async domainActivate(params: any) {
+    async domainActivate(params: {
+      domain: string
+      rootDomain: string
+      token: string
+      username: string
+      authToken: string
+    }) {
       const res = await hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/activate`,
@@ -43,7 +49,13 @@ const createHiveDomain = (hiveURL: string) => {
       return res
     },
 
-    async domainDeactivate(params: any) {
+    async domainDeactivate(params: {
+      domain: string
+      rootDomain: string
+      token: string
+      username: string
+      authToken: string
+    }) {
       const res = await hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/deactivate`,

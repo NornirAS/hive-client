@@ -7,7 +7,7 @@ const createHiveAuth = (hiveURL: string) => {
   }
 
   return {
-    async authGetToken(params: any) {
+    async authGetToken(params: { username: string; password: string }) {
       const res = await hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/get-token`,

@@ -7,7 +7,7 @@ const createHiveGhost = (hiveURL: string) => {
   }
 
   return {
-    async ghostGetAll(params: any) {
+    async ghostGetAll(params: { domain: string; rootDomain: string; token: string }) {
       const res = await hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}`,
@@ -16,7 +16,7 @@ const createHiveGhost = (hiveURL: string) => {
       return res
     },
 
-    async ghostDelete(params: any) {
+    async ghostDelete(params: { domain: string; rootDomain: string; token: string; service: string; ghostID: string }) {
       const res = await hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/delete`,
@@ -25,7 +25,13 @@ const createHiveGhost = (hiveURL: string) => {
       return res
     },
 
-    async ghostGetPending(params: any) {
+    async ghostGetPending(params: {
+      domain: string
+      rootDomain: string
+      token: string
+      service: string
+      username: string
+    }) {
       const res = await hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/pending`,
@@ -34,7 +40,14 @@ const createHiveGhost = (hiveURL: string) => {
       return res
     },
 
-    async ghostAcceptPending(params: any) {
+    async ghostAcceptPending(params: {
+      domain: string
+      rootDomain: string
+      token: string
+      service: string
+      username: string
+      ghostID: string
+    }) {
       const res = await hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/pending/accept`,
@@ -43,7 +56,14 @@ const createHiveGhost = (hiveURL: string) => {
       return res
     },
 
-    async ghostRejectPending(params: any) {
+    async ghostRejectPending(params: {
+      domain: string
+      rootDomain: string
+      token: string
+      service: string
+      username: string
+      ghostID: string
+    }) {
       const res = await hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/pending/reject`,
@@ -52,7 +72,14 @@ const createHiveGhost = (hiveURL: string) => {
       return res
     },
 
-    async ghostAddMapID(params: any) {
+    async ghostAddMapID(params: {
+      domain: string
+      rootDomain: string
+      token: string
+      service: string
+      mapID: string
+      ghostID: string
+    }) {
       const res = await hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/map-id/add`,
@@ -61,7 +88,13 @@ const createHiveGhost = (hiveURL: string) => {
       return res
     },
 
-    async ghostGenerateMapID(params: any) {
+    async ghostGenerateMapID(params: {
+      domain: string
+      rootDomain: string
+      token: string
+      service: string
+      ghostID: string
+    }) {
       const res = await hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/map-id/generate`,
@@ -70,7 +103,15 @@ const createHiveGhost = (hiveURL: string) => {
       return res
     },
 
-    async ghostTransferOwnership(params: any) {
+    async ghostTransferOwnership(params: {
+      domain: string
+      rootDomain: string
+      token: string
+      service: string
+      username: string
+      ghostID: string
+      newOwnerUsername: string
+    }) {
       const res = await hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/transfer`,
@@ -79,7 +120,13 @@ const createHiveGhost = (hiveURL: string) => {
       return res
     },
 
-    async ghostDisableData(params: any) {
+    async ghostDisableData(params: {
+      domain: string
+      rootDomain: string
+      token: string
+      service: string
+      ghostID: string
+    }) {
       const res = await hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/disable-data`,
@@ -88,7 +135,14 @@ const createHiveGhost = (hiveURL: string) => {
       return res
     },
 
-    async ghostAllowLink(params: any) {
+    async ghostAllowLink(params: {
+      domain: string
+      rootDomain: string
+      token: string
+      service: string
+      ghostID: string
+      linkedFrom: string
+    }) {
       const res = await hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/link/allow`,
@@ -97,7 +151,14 @@ const createHiveGhost = (hiveURL: string) => {
       return res
     },
 
-    async ghostDenyLink(params: any) {
+    async ghostDenyLink(params: {
+      domain: string
+      rootDomain: string
+      token: string
+      service: string
+      username: string
+      linkedFrom: string
+    }) {
       const res = await hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/link/deny`,
@@ -106,7 +167,14 @@ const createHiveGhost = (hiveURL: string) => {
       return res
     },
 
-    async ghostStatus(params: any) {
+    async ghostStatus(params: {
+      domain: string
+      rootDomain: string
+      token: string
+      service: string
+      username: string
+      ghostID: string
+    }) {
       const res = await hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/status`,
@@ -115,7 +183,16 @@ const createHiveGhost = (hiveURL: string) => {
       return res
     },
 
-    async ghostMorphedAdd(params: any) {
+    async ghostMorphedAdd(params: {
+      domain: string
+      rootDomain: string
+      token: string
+      service: string
+      ghostID: string
+      refDomain: string
+      refService: string
+      refGhostID: string
+    }) {
       const res = await hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/morphed/add`,
@@ -124,7 +201,16 @@ const createHiveGhost = (hiveURL: string) => {
       return res
     },
 
-    async ghostMorphedRemove(params: any) {
+    async ghostMorphedRemove(params: {
+      domain: string
+      rootDomain: string
+      token: string
+      service: string
+      ghostID: string
+      refDomain: string
+      refService: string
+      refGhostID: string
+    }) {
       const res = await hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/morphed/remove`,
@@ -133,7 +219,14 @@ const createHiveGhost = (hiveURL: string) => {
       return res
     },
 
-    async ghostReadAccessAdd(params: any) {
+    async ghostReadAccessAdd(params: {
+      domain: string
+      rootDomain: string
+      token: string
+      service: string
+      username: string
+      ghostID: string
+    }) {
       const res = await hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/read-access/add`,
@@ -142,7 +235,14 @@ const createHiveGhost = (hiveURL: string) => {
       return res
     },
 
-    async ghostReadAccessRemove(params: any) {
+    async ghostReadAccessRemove(params: {
+      domain: string
+      rootDomain: string
+      token: string
+      service: string
+      username: string
+      ghostID: string
+    }) {
       const res = await hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/read-access/remove`,
