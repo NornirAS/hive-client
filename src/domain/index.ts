@@ -1,4 +1,11 @@
 import hivePost from '../utils/hivePost.js'
+import type {
+  DomainGetAllParams,
+  DomainCreateParams,
+  DomainDeleteParams,
+  DomainActivateParams,
+  DomainDeactivateParams,
+} from './types.js'
 
 const createHiveDomain = (hiveURL: string) => {
   const props = {
@@ -7,7 +14,7 @@ const createHiveDomain = (hiveURL: string) => {
   }
 
   return {
-    domainGetAll(params: { rootDomain: string; token: string; username: string }) {
+    domainGetAll(params: DomainGetAllParams) {
       return hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}`,
@@ -15,7 +22,7 @@ const createHiveDomain = (hiveURL: string) => {
       })
     },
 
-    domainCreate(params: { domain: string; rootDomain: string; token: string; username: string }) {
+    domainCreate(params: DomainCreateParams) {
       return hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/create`,
@@ -23,7 +30,7 @@ const createHiveDomain = (hiveURL: string) => {
       })
     },
 
-    domainDelete(params: { domain: string; rootDomain: string; token: string; username: string }) {
+    domainDelete(params: DomainDeleteParams) {
       return hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/delete`,
@@ -31,7 +38,7 @@ const createHiveDomain = (hiveURL: string) => {
       })
     },
 
-    domainActivate(params: { domain: string; rootDomain: string; token: string; username: string; authToken: string }) {
+    domainActivate(params: DomainActivateParams) {
       return hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/activate`,
@@ -39,13 +46,7 @@ const createHiveDomain = (hiveURL: string) => {
       })
     },
 
-    domainDeactivate(params: {
-      domain: string
-      rootDomain: string
-      token: string
-      username: string
-      authToken: string
-    }) {
+    domainDeactivate(params: DomainDeactivateParams) {
       return hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/deactivate`,
@@ -56,3 +57,5 @@ const createHiveDomain = (hiveURL: string) => {
 }
 
 export default createHiveDomain
+
+export { DomainGetAllParams, DomainCreateParams, DomainDeleteParams, DomainActivateParams, DomainDeactivateParams }
