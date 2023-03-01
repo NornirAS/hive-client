@@ -40,10 +40,10 @@ const useHiveService = (hiveURL: string) => {
       })
     },
 
-    serviceRemove(params: ServiceDeleteParams) {
+    serviceDelete(params: ServiceDeleteParams) {
       return hivePost({
         hiveURL: props.hiveURL,
-        path: `${props.basePath}/remove`,
+        path: `${props.basePath}/delete`,
         body: JSON.stringify(params),
       })
     },
