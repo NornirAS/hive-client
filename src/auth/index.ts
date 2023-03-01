@@ -11,7 +11,7 @@ const createHiveAuth = (hiveURL: string) => {
     authGetToken(params: AuthGetTokenParams) {
       return hivePost({
         hiveURL: props.hiveURL,
-        path: `${props.basePath}/get-token`,
+        path: `${props.basePath}/user/token`,
         body: JSON.stringify(params),
       })
     },
