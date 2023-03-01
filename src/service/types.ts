@@ -1,5 +1,5 @@
 export interface ServiceGetAllParams {
-  domains: string
+  domain: string
   rootDomain: string
   token: string
 }
@@ -30,21 +30,21 @@ export interface ServiceUpdateParams {
 }
 
 export interface ServiceDeleteParams {
-  domains: string
+  domain: string
   rootDomain: string
   token: string
   service: string
 }
 
 export interface ServiceLinksParams {
-  domains: string
+  domain: string
   rootDomain: string
   token: string
   service: string
 }
 
 export interface ServiceLinksUpdateParams {
-  domains: string
+  domain: string
   rootDomain: string
   token: string
   service: string
@@ -52,7 +52,7 @@ export interface ServiceLinksUpdateParams {
 }
 
 export interface ServiceGhostAddParams {
-  domains: string
+  domain: string
   rootDomain: string
   token: string
   service: string
