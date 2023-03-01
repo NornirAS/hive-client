@@ -1,7 +1,7 @@
 import hivePost from '../utils/hivePost.js'
 import type { AuthGetTokenParams } from './types.js'
 
-const createHiveAuth = (hiveURL: string) => {
+const useHiveAuth = (hiveURL: string) => {
   const props = {
     hiveURL,
     basePath: '/api/synxpass',
@@ -18,6 +18,6 @@ const createHiveAuth = (hiveURL: string) => {
   }
 }
 
-export default createHiveAuth
+export default useHiveAuth
 
 export type { AuthGetTokenParams }

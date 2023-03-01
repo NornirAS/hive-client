@@ -9,7 +9,7 @@ import type {
   ServiceUpdateParams,
 } from './types.js'
 
-const createHiveService = (hiveURL: string) => {
+const useHiveService = (hiveURL: string) => {
   const props = {
     hiveURL,
     basePath: '/api/services',
@@ -74,7 +74,7 @@ const createHiveService = (hiveURL: string) => {
   }
 }
 
-export default createHiveService
+export default useHiveService
 
 export type {
   ServiceCreateParams,

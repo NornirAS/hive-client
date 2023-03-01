@@ -7,7 +7,7 @@ import type {
   DomainDeactivateParams,
 } from './types.js'
 
-const createHiveDomain = (hiveURL: string) => {
+const useHiveDomain = (hiveURL: string) => {
   const props = {
     hiveURL,
     basePath: '/api/domains',
@@ -56,6 +56,6 @@ const createHiveDomain = (hiveURL: string) => {
   }
 }
 
-export default createHiveDomain
+export default useHiveDomain
 
 export type { DomainGetAllParams, DomainCreateParams, DomainDeleteParams, DomainActivateParams, DomainDeactivateParams }

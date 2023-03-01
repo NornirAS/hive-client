@@ -1,16 +1,12 @@
-import createHiveAuth from './auth/index.js'
-import createHiveDomain from './domain/index.js'
-import createHiveService from './service/index.js'
-import createHiveGhost from './ghost/index.js'
-import type { AuthGetTokenParams } from './auth/types.js'
-import type {
+import useHiveAuth, { AuthGetTokenParams } from './auth/index.js'
+import useHiveDomain, {
   DomainGetAllParams,
   DomainCreateParams,
   DomainDeleteParams,
   DomainActivateParams,
   DomainDeactivateParams,
-} from './domain/types.js'
-import type {
+} from './domain/index.js'
+import useHiveService, {
   ServiceCreateParams,
   ServiceDeleteParams,
   ServiceGetAllParams,
@@ -18,8 +14,8 @@ import type {
   ServiceLinksParams,
   ServiceLinksUpdateParams,
   ServiceUpdateParams,
-} from './service/types.js'
-import type {
+} from './service/index.js'
+import useHiveGhost, {
   GhostAcceptPendingParams,
   GhostAddMapIDParams,
   GhostDeleteParams,
@@ -36,13 +32,13 @@ import type {
   GhostMorphedRemoveParams,
   GhostReadAccessAddParams,
   GhostReadAccessRemoveParams,
-} from './ghost/types.js'
+} from './ghost/index.js'
 
 const createHiveClient = (hiveURL: string) => ({
-  ...createHiveAuth(hiveURL),
-  ...createHiveDomain(hiveURL),
-  ...createHiveService(hiveURL),
-  ...createHiveGhost(hiveURL),
+  ...useHiveAuth(hiveURL),
+  ...useHiveDomain(hiveURL),
+  ...useHiveService(hiveURL),
+  ...useHiveGhost(hiveURL),
 })
 
 export default createHiveClient

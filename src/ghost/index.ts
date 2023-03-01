@@ -18,7 +18,7 @@ import type {
   GhostReadAccessRemoveParams,
 } from './types.js'
 
-const createHiveGhost = (hiveURL: string) => {
+const useHiveGhost = (hiveURL: string) => {
   const props = {
     hiveURL,
     basePath: '/api/ghosts',
@@ -155,7 +155,7 @@ const createHiveGhost = (hiveURL: string) => {
   }
 }
 
-export default createHiveGhost
+export default useHiveGhost
 
 export type {
   GhostAcceptPendingParams,
