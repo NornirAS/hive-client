@@ -1,12 +1,18 @@
 import fetch from 'cross-fetch'
 
-interface RequestParams {
+interface HiveRequest {
   hiveURL: string
   path: string
   body: string
 }
 
-const hivePost = async ({ hiveURL, path, body }: RequestParams) => {
+export interface HiveResponse {
+  data: unknown
+  error: boolean
+  message: unknown
+}
+
+const hivePost = async ({ hiveURL, path, body }: HiveRequest): Promise<HiveResponse> => {
   try {
     const res = await fetch(`${hiveURL}${path}`, {
       method: 'POST',
