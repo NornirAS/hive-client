@@ -1,4 +1,4 @@
-export interface AuthGetToken {
+export interface AuthGetTokenParams {
   username: string
   password: string
 }

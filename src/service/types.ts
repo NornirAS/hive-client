@@ -1,10 +1,10 @@
-export interface ServiceGetAll {
+export interface ServiceGetAllParams {
   domains: string
   rootDomain: string
   token: string
 }
 
-export interface ServiceCreate {
+export interface ServiceCreateParams {
   rootDomain: string
   token: string
   username: string
@@ -17,7 +17,7 @@ export interface ServiceCreate {
   postScript?: string
 }
 
-export interface ServiceUpdate {
+export interface ServiceUpdateParams {
   rootDomain: string
   token: string
   service: string
@@ -29,21 +29,21 @@ export interface ServiceUpdate {
   postScript?: string
 }
 
-export interface ServiceDelete {
+export interface ServiceDeleteParams {
   domains: string
   rootDomain: string
   token: string
   service: string
 }
 
-export interface ServiceLinks {
+export interface ServiceLinksParams {
   domains: string
   rootDomain: string
   token: string
   service: string
 }
 
-export interface ServiceLinksUpdate {
+export interface ServiceLinksUpdateParams {
   domains: string
   rootDomain: string
   token: string
@@ -51,7 +51,7 @@ export interface ServiceLinksUpdate {
   links: string[]
 }
 
-export interface ServiceGhostAdd {
+export interface ServiceGhostAddParams {
   domains: string
   rootDomain: string
   token: string

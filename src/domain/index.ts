@@ -58,4 +58,4 @@ const createHiveDomain = (hiveURL: string) => {
 
 export default createHiveDomain
 
-export { DomainGetAllParams, DomainCreateParams, DomainDeleteParams, DomainActivateParams, DomainDeactivateParams }
+export type { DomainGetAllParams, DomainCreateParams, DomainDeleteParams, DomainActivateParams, DomainDeactivateParams }

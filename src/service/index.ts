@@ -1,12 +1,12 @@
 import hivePost from '../utils/hivePost.js'
 import type {
-  ServiceCreate,
-  ServiceDelete,
-  ServiceGetAll,
-  ServiceGhostAdd,
-  ServiceLinks,
-  ServiceLinksUpdate,
-  ServiceUpdate,
+  ServiceCreateParams,
+  ServiceDeleteParams,
+  ServiceGetAllParams,
+  ServiceGhostAddParams,
+  ServiceLinksParams,
+  ServiceLinksUpdateParams,
+  ServiceUpdateParams,
 } from './types.js'
 
 const createHiveService = (hiveURL: string) => {
@@ -16,7 +16,7 @@ const createHiveService = (hiveURL: string) => {
   }
 
   return {
-    serviceGetAll(params: ServiceGetAll) {
+    serviceGetAll(params: ServiceGetAllParams) {
       return hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}`,
@@ -24,7 +24,7 @@ const createHiveService = (hiveURL: string) => {
       })
     },
 
-    serviceCreate(params: ServiceCreate) {
+    serviceCreate(params: ServiceCreateParams) {
       return hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/create`,
@@ -32,7 +32,7 @@ const createHiveService = (hiveURL: string) => {
       })
     },
 
-    serviceUpdate(params: ServiceUpdate) {
+    serviceUpdate(params: ServiceUpdateParams) {
       return hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/update`,
@@ -40,7 +40,7 @@ const createHiveService = (hiveURL: string) => {
       })
     },
 
-    serviceRemove(params: ServiceDelete) {
+    serviceRemove(params: ServiceDeleteParams) {
       return hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/remove`,
@@ -48,7 +48,7 @@ const createHiveService = (hiveURL: string) => {
       })
     },
 
-    serviceLinks(params: ServiceLinks) {
+    serviceLinks(params: ServiceLinksParams) {
       return hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/links`,
@@ -56,7 +56,7 @@ const createHiveService = (hiveURL: string) => {
       })
     },
 
-    serviceLinksUpdate(params: ServiceLinksUpdate) {
+    serviceLinksUpdate(params: ServiceLinksUpdateParams) {
       return hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/links/update`,
@@ -64,7 +64,7 @@ const createHiveService = (hiveURL: string) => {
       })
     },
 
-    serviceGhostsAdd(params: ServiceGhostAdd) {
+    serviceGhostsAdd(params: ServiceGhostAddParams) {
       return hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/ghosts/add`,
@@ -76,4 +76,12 @@ const createHiveService = (hiveURL: string) => {
 
 export default createHiveService
 
-export { ServiceCreate, ServiceDelete, ServiceGetAll, ServiceGhostAdd, ServiceLinks, ServiceLinksUpdate, ServiceUpdate }
+export type {
+  ServiceCreateParams,
+  ServiceDeleteParams,
+  ServiceGetAllParams,
+  ServiceGhostAddParams,
+  ServiceLinksParams,
+  ServiceLinksUpdateParams,
+  ServiceUpdateParams,
+}

@@ -1,4 +1,22 @@
 import hivePost from '../utils/hivePost.js'
+import type {
+  GhostAcceptPendingParams,
+  GhostAddMapIDParams,
+  GhostDeleteParams,
+  GhostDisableDataParams,
+  GhostGenerateMapIDParams,
+  GhostGetPendingParams,
+  GhostRejectPendingParams,
+  GhostTransferOwnershipParams,
+  GhostGetAllParams,
+  GhostAllowLinkParams,
+  GhostDenyLinkParams,
+  GhostStatusParams,
+  GhostMorphedAddParams,
+  GhostMorphedRemoveParams,
+  GhostReadAccessAddParams,
+  GhostReadAccessRemoveParams,
+} from './types.js'
 
 const createHiveGhost = (hiveURL: string) => {
   const props = {
@@ -7,7 +25,7 @@ const createHiveGhost = (hiveURL: string) => {
   }
 
   return {
-    ghostGetAll(params: { domain: string; rootDomain: string; token: string }) {
+    ghostGetAll(params: GhostGetAllParams) {
       return hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}`,
@@ -15,7 +33,7 @@ const createHiveGhost = (hiveURL: string) => {
       })
     },
 
-    ghostDelete(params: { domain: string; rootDomain: string; token: string; service: string; ghostID: string }) {
+    ghostDelete(params: GhostDeleteParams) {
       return hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/delete`,
@@ -23,7 +41,7 @@ const createHiveGhost = (hiveURL: string) => {
       })
     },
 
-    ghostGetPending(params: { domain: string; rootDomain: string; token: string; service: string; username: string }) {
+    ghostGetPending(params: GhostGetPendingParams) {
       return hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/pending`,
@@ -31,14 +49,7 @@ const createHiveGhost = (hiveURL: string) => {
       })
     },
 
-    ghostAcceptPending(params: {
-      domain: string
-      rootDomain: string
-      token: string
-      service: string
-      username: string
-      ghostID: string
-    }) {
+    ghostAcceptPending(params: GhostAcceptPendingParams) {
       return hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/pending/accept`,
@@ -46,14 +57,7 @@ const createHiveGhost = (hiveURL: string) => {
       })
     },
 
-    ghostRejectPending(params: {
-      domain: string
-      rootDomain: string
-      token: string
-      service: string
-      username: string
-      ghostID: string
-    }) {
+    ghostRejectPending(params: GhostRejectPendingParams) {
       return hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/pending/reject`,
@@ -61,14 +65,7 @@ const createHiveGhost = (hiveURL: string) => {
       })
     },
 
-    ghostAddMapID(params: {
-      domain: string
-      rootDomain: string
-      token: string
-      service: string
-      mapID: string
-      ghostID: string
-    }) {
+    ghostAddMapID(params: GhostAddMapIDParams) {
       return hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/map-id/add`,
@@ -76,13 +73,7 @@ const createHiveGhost = (hiveURL: string) => {
       })
     },
 
-    ghostGenerateMapID(params: {
-      domain: string
-      rootDomain: string
-      token: string
-      service: string
-      ghostID: string
-    }) {
+    ghostGenerateMapID(params: GhostGenerateMapIDParams) {
       return hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/map-id/generate`,
@@ -90,15 +81,7 @@ const createHiveGhost = (hiveURL: string) => {
       })
     },
 
-    ghostTransferOwnership(params: {
-      domain: string
-      rootDomain: string
-      token: string
-      service: string
-      username: string
-      ghostID: string
-      newOwnerUsername: string
-    }) {
+    ghostTransferOwnership(params: GhostTransferOwnershipParams) {
       return hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/transfer`,
@@ -106,7 +89,7 @@ const createHiveGhost = (hiveURL: string) => {
       })
     },
 
-    ghostDisableData(params: { domain: string; rootDomain: string; token: string; service: string; ghostID: string }) {
+    ghostDisableData(params: GhostDisableDataParams) {
       return hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/disable-data`,
@@ -114,14 +97,7 @@ const createHiveGhost = (hiveURL: string) => {
       })
     },
 
-    ghostAllowLink(params: {
-      domain: string
-      rootDomain: string
-      token: string
-      service: string
-      ghostID: string
-      linkedFrom: string
-    }) {
+    ghostAllowLink(params: GhostAllowLinkParams) {
       return hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/link/allow`,
@@ -129,14 +105,7 @@ const createHiveGhost = (hiveURL: string) => {
       })
     },
 
-    ghostDenyLink(params: {
-      domain: string
-      rootDomain: string
-      token: string
-      service: string
-      username: string
-      linkedFrom: string
-    }) {
+    ghostDenyLink(params: GhostDenyLinkParams) {
       hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/link/deny`,
@@ -144,14 +113,7 @@ const createHiveGhost = (hiveURL: string) => {
       })
     },
 
-    ghostStatus(params: {
-      domain: string
-      rootDomain: string
-      token: string
-      service: string
-      username: string
-      ghostID: string
-    }) {
+    ghostStatus(params: GhostStatusParams) {
       return hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/status`,
@@ -159,16 +121,7 @@ const createHiveGhost = (hiveURL: string) => {
       })
     },
 
-    ghostMorphedAdd(params: {
-      domain: string
-      rootDomain: string
-      token: string
-      service: string
-      ghostID: string
-      refDomain: string
-      refService: string
-      refGhostID: string
-    }) {
+    ghostMorphedAdd(params: GhostMorphedAddParams) {
       return hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/morphed/add`,
@@ -176,16 +129,7 @@ const createHiveGhost = (hiveURL: string) => {
       })
     },
 
-    ghostMorphedRemove(params: {
-      domain: string
-      rootDomain: string
-      token: string
-      service: string
-      ghostID: string
-      refDomain: string
-      refService: string
-      refGhostID: string
-    }) {
+    ghostMorphedRemove(params: GhostMorphedRemoveParams) {
       return hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/morphed/remove`,
@@ -193,14 +137,7 @@ const createHiveGhost = (hiveURL: string) => {
       })
     },
 
-    ghostReadAccessAdd(params: {
-      domain: string
-      rootDomain: string
-      token: string
-      service: string
-      username: string
-      ghostID: string
-    }) {
+    ghostReadAccessAdd(params: GhostReadAccessAddParams) {
       return hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/read-access/add`,
@@ -208,14 +145,7 @@ const createHiveGhost = (hiveURL: string) => {
       })
     },
 
-    ghostReadAccessRemove(params: {
-      domain: string
-      rootDomain: string
-      token: string
-      service: string
-      username: string
-      ghostID: string
-    }) {
+    ghostReadAccessRemove(params: GhostReadAccessRemoveParams) {
       return hivePost({
         hiveURL: props.hiveURL,
         path: `${props.basePath}/read-access/remove`,
@@ -226,3 +156,22 @@ const createHiveGhost = (hiveURL: string) => {
 }
 
 export default createHiveGhost
+
+export type {
+  GhostAcceptPendingParams,
+  GhostAddMapIDParams,
+  GhostDeleteParams,
+  GhostDisableDataParams,
+  GhostGenerateMapIDParams,
+  GhostGetPendingParams,
+  GhostRejectPendingParams,
+  GhostTransferOwnershipParams,
+  GhostGetAllParams,
+  GhostAllowLinkParams,
+  GhostDenyLinkParams,
+  GhostStatusParams,
+  GhostMorphedAddParams,
+  GhostMorphedRemoveParams,
+  GhostReadAccessAddParams,
+  GhostReadAccessRemoveParams,
+}
